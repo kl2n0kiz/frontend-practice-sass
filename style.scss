@@ -1,0 +1,87 @@
+// 1. Переменные (минимум 2)
+$primary-color: #3498db;
+$text-color: #333;
+$bg-color: #f0f2f5;      // Добавил переменную для фона страницы
+$card-padding: 20px;
+
+// 2. Миксин (минимум 1)
+// Миксин для создания тени карточки
+@mixin card-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    
+    &:hover {
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+}
+
+// Стили для body для центрирования
+body {
+    display: flex;             // Включаем флексбокс
+    justify-content: center;   // Центрирование по горизонтали
+    align-items: center;       // Центрирование по вертикали
+    min-height: 100vh;         // Высота на весь экран
+    margin: 0;
+    background-color: $bg-color; // Используем переменную
+    font-family: Arial, sans-serif;
+}
+
+// 3. Вложенная структура селекторов
+.product-card {
+    width: 100%;
+    max-width: 300px;          // Ограничиваем ширину карточки
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    
+    // Подключаем миксин
+    @include card-shadow;
+
+    &__image {
+        width: 100%;
+        height: 200px;
+        background-color: #f0f0f0;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__content {
+        padding: $card-padding;
+        color: $text-color;
+    }
+
+    &__title {
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: $primary-color;
+    }
+
+    &__description {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+
+    &__btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: $primary-color;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        &:hover {
+            background-color: darken($primary-color, 10%);
+        }
+    }
+}
