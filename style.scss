@@ -1,11 +1,8 @@
-// 1. Переменные (минимум 2)
 $primary-color: #3498db;
 $text-color: #333;
-$bg-color: #f0f2f5;      // Добавил переменную для фона страницы
+$bg-color: #f0f2f5;      
 $card-padding: 20px;
 
-// 2. Миксин (минимум 1)
-// Миксин для создания тени карточки
 @mixin card-shadow {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
@@ -15,27 +12,27 @@ $card-padding: 20px;
     }
 }
 
-// Стили для body для центрирования
+// Стили для body 
 body {
-    display: flex;             // Включаем флексбокс
-    justify-content: center;   // Центрирование по горизонтали
-    align-items: center;       // Центрирование по вертикали
-    min-height: 100vh;         // Высота на весь экран
+    display: flex;             
+    justify-content: center;   
+    align-items: center;       
+    min-height: 100vh;         
     margin: 0;
-    background-color: $bg-color; // Используем переменную
+    background-color: $bg-color; 
     font-family: Arial, sans-serif;
 }
 
-// 3. Вложенная структура селекторов
+
 .product-card {
     width: 100%;
-    max-width: 300px;          // Ограничиваем ширину карточки
+    max-width: 300px;          
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
     background-color: white;
     
-    // Подключаем миксин
+  
     @include card-shadow;
 
     &__image {
